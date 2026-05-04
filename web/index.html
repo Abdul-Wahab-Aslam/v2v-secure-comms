@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure V2V Communication — AI Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-grid">
+    <div class="header-badge">BSIT-F25-005</div>
+    <div class="header-titles">
+      <h1>Secure Vehicle-to-Vehicle Communication</h1>
+      <p class="header-sub">AI-Driven Anomaly Detection &amp; Performance Dashboard</p>
+    </div>
+    <div class="header-meta">
+      <span id="live-time"></span>
+      <span class="tag-dept">Dept. of Computer Sciences</span>
+    </div>
+  </div>
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="models">Model Results</button>
+    <button class="tab-btn" data-tab="metrics">Performance Metrics</button>
+    <button class="tab-btn" data-tab="confusion">Confusion Matrices</button>
+    <button class="tab-btn" data-tab="simulation">Simulation Data</button>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- ══ TAB: OVERVIEW ══════════════════════════════════════ -->
+  <section id="tab-overview" class="tab-content active">
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Project</h3>
+        <p id="meta-project">—</p>
+      </div>
+      <div class="info-card">
+        <h3>Supervisor</h3>
+        <p id="meta-supervisor">—</p>
+      </div>
+      <div class="info-card">
+        <h3>Group Members</h3>
+        <ul id="meta-members"></ul>
+      </div>
+      <div class="info-card">
+        <h3>Generated At</h3>
+        <p id="meta-generated">—</p>
+      </div>
+    </div>
+
+    <!-- KPI Row -->
+    <div class="kpi-row" id="kpi-row"></div>
+
+    <!-- Class Distribution + Scenario Stats -->
+    <div class="chart-duo">
+      <div class="chart-box">
+        <h2 class="chart-title">Dataset Class Distribution</h2>
+        <canvas id="chartDist"></canvas>
+      </div>
+      <div class="chart-box">
+        <h2 class="chart-title">Scenario Feature Comparison</h2>
+        <canvas id="chartScenario"></canvas>
+      </div>
+    </div>
+
+    <!-- Deliverables checklist -->
+    <div class="deliverables-box">
+      <h2 class="chart-title">Project Deliverables — Completion Status</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>#</th><th>Deliverable</th><th>Technology</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Traffic Simulation (Normal, Accident, Suspicious)</td><td>Python / NumPy</td><td><span class="badge done">✓ Done</span></td></tr>
+          <tr><td>2</td><td>AI Anomaly Detection — Isolation Forest</td><td>scikit-learn</td><td><span class="badge done">✓ Done</span></td></tr>
+          <tr><td>3</td><td>AI Classification — XGBoost</td><td>XGBoost</td><td><span class="badge done">✓ Done</span></td></tr>
+          <tr><td>4</td><td>Sequential Detection — LSTM</td><td>TensorFlow / Keras</td><td><span class="badge done">✓ Done</span></td></tr>
+          <tr><td>5</td><td>Performance Metrics (Accuracy, Precision, Recall, F1)</td><td>scikit-learn</td><td><span class="badge done">✓ Done</span></td></tr>
+          <tr><td>6</td><td>Latency Benchmarking</td><td>Python time module</td><td><span class="badge done">✓ Done</span></td></tr>
+          <tr><td>7</td><td>Confusion Matrix Analysis</td><td>scikit-learn</td><td><span class="badge done">✓ Done</span></td></tr>
+          <tr><td>8</td><td>Interactive Web Dashboard</td><td>HTML / CSS / JS / Chart.js</td><td><span class="badge done">✓ Done</span></td></tr>
+          <tr><td>9</td><td>Vercel Deployment Ready</td><td>vercel.json + static site</td><td><span class="badge done">✓ Done</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══ TAB: MODEL RESULTS ═════════════════════════════════ -->
+  <section id="tab-models" class="tab-content">
+    <h2 class="section-title">AI Model Benchmarks</h2>
+    <table class="data-table" id="model-table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Type</th>
+          <th>Accuracy (%)</th>
+          <th>Precision (%)</th>
+          <th>Recall (%)</th>
+          <th>F1 Score (%)</th>
+          <th>Latency (ms/sample)</th>
+        </tr>
+      </thead>
+      <tbody id="model-tbody"></tbody>
+    </table>
+
+    <div class="chart-duo">
+      <div class="chart-box">
+        <h2 class="chart-title">All Metrics by Model</h2>
+        <canvas id="chartModelMetrics"></canvas>
+      </div>
+      <div class="chart-box">
+        <h2 class="chart-title">Inference Latency (ms / sample)</h2>
+        <canvas id="chartLatency"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TAB: PERFORMANCE METRICS ═══════════════════════════ -->
+  <section id="tab-metrics" class="tab-content">
+    <h2 class="section-title">Detailed Performance Metrics</h2>
+
+    <div class="chart-duo">
+      <div class="chart-box">
+        <h2 class="chart-title">Accuracy Comparison</h2>
+        <canvas id="chartAccuracy"></canvas>
+      </div>
+      <div class="chart-box">
+        <h2 class="chart-title">F1 Score Comparison</h2>
+        <canvas id="chartF1"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-box wide">
+      <h2 class="chart-title">Precision vs Recall Trade-off</h2>
+      <canvas id="chartPR"></canvas>
+    </div>
+
+    <div class="chart-box wide">
+      <h2 class="chart-title">Scenario Feature Statistics</h2>
+      <canvas id="chartScenarioFull"></canvas>
+    </div>
+
+    <!-- Scenario stats table -->
+    <h2 class="section-title" style="margin-top:2rem">Scenario Statistics Table</h2>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Scenario</th>
+          <th>Avg Speed (km/h)</th>
+          <th>Avg Acceleration (m/s²)</th>
+          <th>Avg Braking Force</th>
+          <th>Avg Proximity (m)</th>
+        </tr>
+      </thead>
+      <tbody id="scenario-tbody"></tbody>
+    </table>
+  </section>
+
+  <!-- ══ TAB: CONFUSION MATRICES ════════════════════════════ -->
+  <section id="tab-confusion" class="tab-content">
+    <h2 class="section-title">Confusion Matrices</h2>
+    <div class="cm-grid" id="cm-grid"></div>
+  </section>
+
+  <!-- ══ TAB: SIMULATION DATA ═══════════════════════════════ -->
+  <section id="tab-simulation" class="tab-content">
+    <h2 class="section-title">Simulation Sample Data</h2>
+    <p class="section-desc">First 200 rows of the synthetic V2V telemetry dataset used for AI training and evaluation.</p>
+    <div class="table-scroll">
+      <table class="data-table" id="sim-table">
+        <thead id="sim-thead"></thead>
+        <tbody id="sim-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Secure V2V Communication using AI &nbsp;·&nbsp; Group BSIT-F25-005 &nbsp;·&nbsp;
+     Department of Computer Sciences &nbsp;·&nbsp; Supervisor: Zunnurain Hussain</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
