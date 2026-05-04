@@ -1,1 +1,134 @@
-
+{
+  "meta": {
+    "project": "Secure V2V Communication using AI",
+    "group_id": "BSIT-F25-005",
+    "supervisor": "Zunnurain Hussain",
+    "members": [
+      "Abdul Hanan Sabir (03-135222-001)",
+      "Dania Rasool (03-135222-012)",
+      "Abdul Wahab (03-135232-004)"
+    ],
+    "generated_at": "2026-05-04T11:30:09Z"
+  },
+  "class_distribution": [
+    {
+      "label": "Normal",
+      "count": 9000
+    },
+    {
+      "label": "Accident",
+      "count": 3000
+    },
+    {
+      "label": "Suspicious",
+      "count": 3000
+    }
+  ],
+  "scenario_stats": [
+    {
+      "scenario": "Normal",
+      "avg_speed": 59.99,
+      "avg_accel": 0.01,
+      "avg_braking": 0.108,
+      "avg_proximity": 30.03
+    },
+    {
+      "scenario": "Accident",
+      "avg_speed": 20.89,
+      "avg_accel": -7.96,
+      "avg_braking": 0.899,
+      "avg_proximity": 5.09
+    },
+    {
+      "scenario": "Suspicious",
+      "avg_speed": 110.19,
+      "avg_accel": 4.03,
+      "avg_braking": 0.054,
+      "avg_proximity": 7.97
+    }
+  ],
+  "model_results": [
+    {
+      "model": "Isolation Forest",
+      "accuracy": 93.7,
+      "precision": 92.23,
+      "recall": 92.0,
+      "f1": 92.12,
+      "latency_ms": 0.107,
+      "confusion_matrix": [
+        [
+          1707,
+          93
+        ],
+        [
+          96,
+          1104
+        ]
+      ],
+      "cm_labels": [
+        "Normal",
+        "Anomaly"
+      ]
+    },
+    {
+      "model": "XGBoost",
+      "accuracy": 99.97,
+      "precision": 99.97,
+      "recall": 99.97,
+      "f1": 99.97,
+      "latency_ms": 0.154,
+      "confusion_matrix": [
+        [
+          1799,
+          0,
+          1
+        ],
+        [
+          0,
+          600,
+          0
+        ],
+        [
+          0,
+          0,
+          600
+        ]
+      ],
+      "cm_labels": [
+        "Normal",
+        "Accident",
+        "Suspicious"
+      ]
+    },
+    {
+      "model": "LSTM",
+      "accuracy": 100.0,
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1": 100.0,
+      "latency_ms": 20.423,
+      "confusion_matrix": [
+        [
+          183,
+          0,
+          0
+        ],
+        [
+          0,
+          64,
+          0
+        ],
+        [
+          0,
+          0,
+          53
+        ]
+      ],
+      "cm_labels": [
+        "Normal",
+        "Accident",
+        "Suspicious"
+      ]
+    }
+  ]
+}
