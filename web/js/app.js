@@ -116,7 +116,7 @@ function renderKPIs(models, dist) {
     { label:'Best F1 Score',    value: fmt(bestF1.f1)+'%',       sub: bestF1.model },
     { label:'Fastest Inference',value: fastest.latency_ms+' ms', sub: fastest.model },
     { label:'Total Samples',    value: totalSamples.toLocaleString(), sub: 'training + test' },
-    { label:'Models Trained',   value: models.length,            sub: 'IF · XGB · LSTM' },
+   //{ label:'Models Trained',   value: models.length,            sub: 'IF · XGB · LSTM' },
     { label:'Driving Classes',  value: dist.length,              sub: 'Normal / Accident / Suspicious' },
   ];
 
@@ -181,7 +181,7 @@ function renderScenarioChart(scenarios) {
 const MODEL_TYPES = {
   'Isolation Forest': 'Unsupervised / Anomaly',
   'XGBoost':          'Supervised / Classification',
-  'LSTM':             'Deep Learning / Sequential',
+ // 'LSTM':             'Deep Learning / Sequential',
 };
 
 function renderModelTable(models) {
@@ -465,7 +465,7 @@ const DEMO_DATA = {
       confusion_matrix:[[1799,0,1],[0,600,0],[0,0,600]], cm_labels:["Normal","Accident","Suspicious"]
     },
     {
-      model:"LSTM", accuracy:100.0, precision:100.0, recall:100.0, f1:100.0, latency_ms:20.423,
+      //model:"LSTM", accuracy:100.0, precision:100.0, recall:100.0, f1:100.0, latency_ms:20.423,
       confusion_matrix:[[183,0,0],[0,64,0],[0,0,53]], cm_labels:["Normal","Accident","Suspicious"]
     },
   ],
