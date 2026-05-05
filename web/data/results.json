@@ -6,7 +6,7 @@
     "members": [
       "Abdul Hanan Sabir (03-135222-001)",
       "Dania Rasool (03-135222-012)",
-      "Abdul Wahab (03-135232-004)"
+      "Abdul Wahab Aslam (03-135232-004)"
     ],
     "generated_at": "2026-05-04T11:30:09Z"
   },
@@ -92,36 +92,6 @@
           0,
           0,
           600
-        ]
-      ],
-      "cm_labels": [
-        "Normal",
-        "Accident",
-        "Suspicious"
-      ]
-    },
-    {
-      "model": "LSTM",
-      "accuracy": 100.0,
-      "precision": 100.0,
-      "recall": 100.0,
-      "f1": 100.0,
-      "latency_ms": 20.423,
-      "confusion_matrix": [
-        [
-          183,
-          0,
-          0
-        ],
-        [
-          0,
-          64,
-          0
-        ],
-        [
-          0,
-          0,
-          53
         ]
       ],
       "cm_labels": [
